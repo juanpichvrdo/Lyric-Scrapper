@@ -65,8 +65,14 @@ class App extends Component {
         </Loader>
 
         <Loader loaded={loaded}>
-          {this.state.error && <p>Couldn't find lyrics :/</p>}
+          {this.state.error && (
+            <p style={{ fontSize: "2rem" }}>Couldn't find lyrics :/</p>
+          )}
         </Loader>
+
+        <p style={{ fontSize: "1.6rem", marginTop: "10rem" }}>
+          coded by Juan D.
+        </p>
       </div>
     );
   }

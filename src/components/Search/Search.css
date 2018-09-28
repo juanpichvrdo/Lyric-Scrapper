@@ -7,39 +7,55 @@ form {
 }
 
 form div {
-  width: 40%;
+  min-width: 30%;
 }
 
 div:first-child {
-  margin-bottom: 2rem;
+  margin-bottom: 4rem;
 }
 
 label {
-  font-size: 2rem;
-  padding-left: 3rem;
+  font-size: 1.6rem;
   color: #122325;
-  margin-right: 2rem;
+  display: block;
+  text-align: left;
 }
 
 input {
-  width: 70%;
+  width: 100%;
   background: none;
   border: none;
   border-bottom: 5px solid #122325;
-  padding: 0.5rem;
+  padding: 0.3rem;
   font-size: 2rem;
   text-align: center;
+  transition: all 0.2s;
+  color: rgba(18, 35, 37, 0.85);
+}
+
+input::selection {
+  background: #122325;
+  color: #d6da45;
+}
+
+input:focus {
+  border-right: 5px solid #122325;
+  box-shadow: 0 10px 5px rgba(18, 35, 37, 0.281);
+  /* outline: none; */
+}
+
+::placeholder {
+  opacity: 0.3;
 }
 
 button {
-  display: block;
   width: 25rem;
   margin-top: 3rem;
   padding: 1.5rem 6rem;
-  font-size: 2rem;
-  border-radius: 10px;
+  font-size: 2.2rem;
+  border-radius: 7px;
   border: none;
-  background-color: #122325;
+  background-color: #030a11;
   box-shadow: 2px 4px 10px rgba(0, 17, 22, 0.3);
   color: #d6da45;
   transition: all 0.2s;
@@ -52,4 +68,23 @@ button:hover {
 
 button:active {
   transform: translateY(2px);
+  outline: none;
+}
+
+@media only screen and (max-width: 800px) {
+  form div {
+    width: 50%;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  form div {
+    min-width: 70%;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  form div {
+    min-width: 80%;
+  }
 }

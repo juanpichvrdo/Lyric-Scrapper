@@ -5,9 +5,7 @@ const Header = () => {
   return (
     <header>
       <h1 className="main-header">Lyric Finder</h1>
-      <h4 className="sub-header">
-        Write the song and artist and get the lyrics.
-      </h4>
+      <h4 className="sub-header">Write the song, artist and get the lyrics.</h4>
     </header>
   );
 };
