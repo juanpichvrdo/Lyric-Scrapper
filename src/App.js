@@ -1,7 +1,9 @@
 import React, { Component } from "react";
+import Loader from "react-loader";
 
-import Header from "./components/Header";
-import Search from "./components/Search";
+import Header from "./components/Header/Header";
+import Search from "./components/Search/Search";
+import SongLyrics from "./components/SongLyrics/SongLyrics";
 
 import "./App.css";
 
@@ -10,7 +12,8 @@ class App extends Component {
     artistInput: "",
     songInput: "",
     songLyrics: "",
-    error: false
+    error: false,
+    loaded: true
   };
 
   onInputChange = e => {
@@ -19,6 +22,8 @@ class App extends Component {
 
   searchSong = async e => {
     e.preventDefault();
+    this.setState({ loaded: false });
+
     const { artistInput, songInput } = this.state;
 
     try {
@@ -28,13 +33,20 @@ class App extends Component {
       let song = await response.json();
 
       this.setState({ songLyrics: song.lyrics });
-      this.setState({ error: false });
+
+      if (!!this.state.songLyrics) {
+        this.setState({ error: false, loaded: true });
+      } else {
+        this.setState({ error: true, loaded: true });
+      }
     } catch (e) {
-      this.setState({ error: true });
+      this.setState({ error: true, loaded: true });
     }
   };
 
   render() {
+    const { artistInput, songInput, songLyrics, loaded } = this.state;
+
     return (
       <div>
         <Header />
@@ -42,8 +54,19 @@ class App extends Component {
           onInputChange={this.onInputChange}
           searchSong={this.searchSong}
         />
-        <div className="song-lyrics">{this.state.songLyrics}</div>
-        {this.state.error && <p>Couldn't find lyrics :/</p>}
+        <Loader loaded={loaded}>
+          {songLyrics && (
+            <SongLyrics
+              artist={artistInput}
+              song={songInput}
+              lyrics={songLyrics}
+            />
+          )}
+        </Loader>
+
+        <Loader loaded={loaded}>
+          {this.state.error && <p>Couldn't find lyrics :/</p>}
+        </Loader>
       </div>
     );
   }

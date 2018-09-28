@@ -1,0 +1,19 @@
+.main-header {
+  font-size: 5rem;
+  font-weight: 300;
+  margin-bottom: 2rem;
+  border-bottom: 5px solid #122325;
+  padding-bottom: 1rem;
+  display: inline-block;
+}
+
+.sub-header {
+  font-size: 2rem;
+  font-weight: 300;
+}
+
+header {
+  text-align: center;
+  margin-top: 10vh;
+  margin-bottom: 7vh;
+}
