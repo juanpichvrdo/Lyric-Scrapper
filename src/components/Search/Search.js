@@ -12,6 +12,7 @@ const Search = ({ onInputChange, searchSong }) => {
           id="songInput"
           onChange={onInputChange}
           placeholder="Viva La Vida"
+          required
         />
       </div>
       <div>
@@ -22,6 +23,7 @@ const Search = ({ onInputChange, searchSong }) => {
           id="artistInput"
           onChange={onInputChange}
           placeholder="Coldplay"
+          required
         />
       </div>
 

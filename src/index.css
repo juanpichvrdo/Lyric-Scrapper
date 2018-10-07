@@ -16,6 +16,11 @@ body {
   outline: none;
 }
 
+::selection {
+  background-color: #122325;
+  color: #d6da45;
+}
+
 @media only screen and (max-width: 820px) {
   html {
     font-size: 55%;

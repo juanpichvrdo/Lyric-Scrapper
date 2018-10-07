@@ -17,6 +17,7 @@
   white-space: pre-line;
   font-size: 1.6rem;
   text-align: left;
+  line-height: 1.6;
 }
 
 .song::selection {
