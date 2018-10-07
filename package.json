@@ -1,6 +1,7 @@
 {
   "name": "lyric_finder",
   "version": "0.1.0",
+  "homepage": "https://lyricscraper.netlify.com/",
   "private": true,
   "dependencies": {
     "react": "^16.5.2",
